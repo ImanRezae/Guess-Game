@@ -5,24 +5,29 @@ const body = document.getElementById("body");
 const btn1 = document.querySelector(".btn1");
 const h3 = document.querySelector(".h3");
 const h33 = document.querySelector(".h33");
+const h4 = document.querySelector(".h4");
 
 
 let min;
 let max;
 let guess = Math.floor( (min+max)-((min+max)/2) );
-var isEqual = false;
-
-
-  min = Number(in1.value);
-  max = Number(in2.value);
+let isEqual = false;
 
 
 btn1.addEventListener('click' , () => {
-  
-  h3.innerHTML = "Please do not enter (negative number) and two number equal...";
+  //*
+  if ( !isEqual ) {
+    
+    min = Number(in1.value);
+    max = Number(in2.value);       // get value for a 1 time
+    isEqual = true;
+  }
+ //*
+
+  h3.innerHTML = "Please do not enter 'negative number' and two number equal...";
   setTimeout(() =>{
-    h3.innerHTML = `number of guesses required : ${Math.ceil(Math.log2(max - min))}times`;
-  } , 7000);
+    h4.innerHTML = `number of guesses required : ${Math.ceil(Math.log2(max - min))}times`;
+  } , 1000);
   main(); // get value
   main(); // run function with new value
 })
@@ -59,8 +64,6 @@ while (true) {
 
     min = guess;
     in3.value = "";
-    console.log(in3.value);
-    
     break;
     
   }else if ( in3.value === "l" ) {
