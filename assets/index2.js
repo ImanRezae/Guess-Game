@@ -1,3 +1,4 @@
+                                                    // none graphic
 const in1 = document.getElementById("in1");
 const in2 = document.getElementById("in2");
 const in3 = document.getElementById("in3");
