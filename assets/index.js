@@ -1,7 +1,6 @@
 const in1 = document.getElementById("in1");
 const in2 = document.getElementById("in2");
 const in3 = document.getElementById("in3");
-const body = document.getElementById("body");
 const btn1 = document.querySelector(".btn1");
 const h3 = document.querySelector(".h3");
 const h33 = document.querySelector(".h33");
@@ -15,6 +14,7 @@ let isEqual = false;
 
 
 btn1.addEventListener('click' , () => {
+  input = in3.value;
   //*
   if ( !isEqual ) {
     
@@ -22,7 +22,12 @@ btn1.addEventListener('click' , () => {
     max = Number(in2.value);       // get value for a 1 time
     isEqual = true;
   }
- //*
+  //*
+  else if ( input === "y" ) {
+    h33.innerHTML = `your number is ${guess}...`;
+    in3.value = "";
+    return;
+  }
 
   h3.innerHTML = "Please do not enter 'negative number' and two number equal...";
   setTimeout(() =>{
@@ -53,13 +58,7 @@ while (true) {
      higher : H , Lover : L , Yes : Y`;
      if ( input === "") {
       break;
-      
-     }
-  if ( input === "y") {
-    
-    h33.innerHTML = `your number is ${guess}...`;
-    in3.value = "";
-    break;
+
   }else if ( input === "h" ) {
 
     min = guess;
